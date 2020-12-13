@@ -1,9 +1,9 @@
-# CourseProject - Michael McClanahan
+# CS 410 Course Project - Michael McClanahan (mjm31)
 ## Reproduction of Paper
 
 ### Mining Causal Topics in Text Data: Iterative Topic Modeling with Time Series Feedback (Kim et. al. 2013)
 
-### Overview of Implementation
+## Overview of Implementation
 
 All programming was done in Python 3.6 (specifically Anaconda distribution 4.4.0).
 
