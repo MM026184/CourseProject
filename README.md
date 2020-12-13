@@ -52,4 +52,5 @@ Within the ITMTF function, LDA topic modeling is performed using Gensim's LdaMod
 ```pip install pandas```
 2. Clone the repository, which contains the working directory and all dependent objects.
 3. Navigate to the working directory and run the script with ```python ITMTFPresidential.py```
-![example_run]()
+
+![example_run](https://github.com/MM026184/CourseProject/blob/main/images/example_run.png)
