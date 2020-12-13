@@ -44,7 +44,9 @@ number_of_topics = 10
 causal_topics = ITMTF(gore_bush_gensim_corpus,gore_bush_gensim_dictionary,number_of_topics,number_of_topics,word_impact_dict,gore_bush_nyt_ts,president_norm_stock_ts,ts_tsID_map,min_significance_value,min_topic_prob,iterations)
 ```
 
-The ITMTF function will call itself for the number of iterations specified, each time building an [LdaModel() object](https://radimrehurek.com/gensim/models/ldamodel.html), passing in a 2D matrix (num_topics,num_unique_terms) matrix of re calculated prior topic word probability distributions into its ```eta``` parameter. With each iteration, .csv files ```causal_topic_words.csv``` and ```itmtf_stats.csv``` in the working directory are appended with a list of signficant topics and their top 5 words and that iteration's average causality confidence and average purity, respectively.
+The ITMTF function will call itself for the number of iterations specified, each time building an [LdaModel() object](https://radimrehurek.com/gensim/models/ldamodel.html), passing in a 2D matrix (num_topics,num_unique_terms) matrix of re calculated prior topic word probability distributions into its ```eta``` parameter. To re-calculate the prior, causal topics are first extracted during the topic-level causality analysis (see section 4.2.1 in the paper), which is performed using a Pearson correlation against the reference Topic Stream and the presidential stock price time series. The topic-word probability prior is then calculated for top words in causal topics in the ```build_prior_matrix()``` function.  This function makes use of the ```word_impact_dict``` object above for each causal topic. 
+
+With each iteration, .csv files ```causal_topic_words.csv``` and ```itmtf_stats.csv``` in the working directory are appended with a list of signficant topics and their top 5 words as well as that iteration's average causality confidence and average purity, respectively.
 
 ### Goal
 
