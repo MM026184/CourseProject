@@ -487,7 +487,7 @@ else:
         print('word_impact_dict built...')
 
 #begin ITMTF
-min_significance_value = 0.8
+min_significance_value = 0.77
 min_topic_prob = 0.001
 iterations = 5
 
