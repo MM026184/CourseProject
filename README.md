@@ -1,4 +1,6 @@
 # CS 410 Course Project - Michael McClanahan (mjm31)
+All project deliverables (source code, documentation, and presentation) were completed by me as I was not the member of a team.
+
 ## Reproduction of Paper
 
 ### Mining Causal Topics in Text Data: Iterative Topic Modeling with Time Series Feedback (Kim et. al. 2013)
