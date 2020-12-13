@@ -2,8 +2,11 @@
 ## Reproduction of Paper
 
 ### Mining Causal Topics in Text Data: Iterative Topic Modeling with Time Series Feedback (Kim et. al. 2013)
+[Link to paper](https://dl-acm-org.proxy2.library.illinois.edu/doi/pdf/10.1145/2505515.2505612)
 
 ## Overview of Implementation
+
+This project attempts to reproduce the 2020 Presidential Election experiment outlined in the paper above.
 
 All programming was done in Python 3.6 (specifically Anaconda distribution 4.4.0).
 
