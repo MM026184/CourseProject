@@ -20,7 +20,7 @@ scipy==1.5.4
 numpy==1.19.4
 ```
 
-All source code is contained within ITMTFPresidential.py as a series of functions.
+All source code is contained within ITMTFPresidential.py as a series of functions. 
 
 For convenience, the following objects have been serialized to files (specifically .pkl files) for easy re-use:
 
@@ -33,7 +33,7 @@ For convenience, the following objects have been serialized to files (specifical
 
 At runtime, if the script's ```reload_data``` variable is set to ```False```, the script will reload ```president_norm_stock_ts``` and ```gore_bush_nyt_ts``` from disk in O(1) time.  If set to ```True```, functions ```build_datasets()``` and ```parse_nyt_corpus_for_gore_bush()``` will get called and rebuild these datasets from a .csv file and the NYT corpus for XML documents, respectively.  Since the NYT dataset was too large, it was not uploaded to this repository.  Therefore, setting this variable to ```True``` is not recommended.
 
-Additionally, if the script's ```build_new_corpus``` variable is set to ```False```, it will reload all of the other remaining objects from disk in O(1) time.  If set to ```True```, it will rebuild all of the other objects by rebuilding the collection, the gensim dictionary, and the gensim corpus.  It will then reperform the Word-level Causality Analysis from 4.2.2, storing the result per gensim dictionary word ID in a dictionary for quick lookup during ITMTF iterations.
+Additionally, if the script's ```build_new_corpus``` variable is set to ```False```, it will reload all of the other remaining objects from disk in O(1) time.  If set to ```True```, it will rebuild all of the other objects by rebuilding the collection, the [gensim dictionary](https://radimrehurek.com/gensim/corpora/dictionary.html), and the gensim corpus (which is the object passed to the [LdaModel()](https://radimrehurek.com/gensim/models/ldamodel.html) for its  ```corpus``` parameter.  It will then reperform the Word-level Causality Analysis from 4.2.2, storing the result per gensim dictionary word ID in a dictionary for quick lookup during ITMTF iterations.
 
 The following 4 parameters are then set and ITMTF iterations are started by calling the ```ITMTF()``` recursive function.
 ```
@@ -44,10 +44,11 @@ number_of_topics = 10
 causal_topics = ITMTF(gore_bush_gensim_corpus,gore_bush_gensim_dictionary,number_of_topics,number_of_topics,word_impact_dict,gore_bush_nyt_ts,president_norm_stock_ts,ts_tsID_map,min_significance_value,min_topic_prob,iterations)
 ```
 
-The ITMTF function will call itself for the number of iterations specified, each time passing in a 2D matrix (num_topics,num_unique_terms) matrix of re calculated prior topic word probability distributions. With each iteration, .csv files ```causal_topic_words.csv``` and ```itmtf_stats.csv``` in the working directory are appended with a list of signficant topics and their top 5 words and that iteration's average causality confidence and average purity, respectively.
+The ITMTF function will call itself for the number of iterations specified, each time building an [LdaModel() object](https://radimrehurek.com/gensim/models/ldamodel.html), passing in a 2D matrix (num_topics,num_unique_terms) matrix of re calculated prior topic word probability distributions into its ```eta``` parameter. With each iteration, .csv files ```causal_topic_words.csv``` and ```itmtf_stats.csv``` in the working directory are appended with a list of signficant topics and their top 5 words and that iteration's average causality confidence and average purity, respectively.
 
-Within the ITMTF function, LDA topic modeling is performed using Gensim's LdaModel() implementation[Gensim's LdaModel() implementation](https://radimrehurek.com/gensim/models/ldamodel.html). You will note that the µ parameter from the paper is not defined, primarily because it is not an parameter for the LdaModel() class provided by Gensim.  It is for this reason that Figure 2(a) from the paper was not reproduced.
+### Goal
 
+The project aims to reproduce the paper's results documented in Table 2 and Figure 2(b).  You will note that the µ parameter from the paper is not defined prior to calling the ITMTF function above, primarily because it is not an parameter for the LdaModel() class provided by Gensim.  It is for this reason that Figure 2(a) from the paper was not reproduced.
 
 ## How to Use
 
