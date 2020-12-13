@@ -1,12 +1,7 @@
-#https://pandas.pydata.org/docs/
 import pandas as pd
-#https://docs.python.org/3/library/xml.etree.elementtree.html
 import xml.etree.ElementTree as ET
-#https://docs.python.org/3/library/glob.html
 import glob
-#https://docs.python.org/3/library/os.html
 import os
-#https://docs.python.org/3/library/pickle.html
 import pickle
 from gensim.utils import lemmatize
 from gensim.corpora import Dictionary
