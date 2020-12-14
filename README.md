@@ -64,4 +64,5 @@ The project aims to reproduce the paper's results documented in Table 2 and Figu
 ![example_run](https://github.com/MM026184/CourseProject/blob/main/images/example_run.png)
 
 ## Presentation Files
-- [Powerpoint]
+- [Powerpoint](https://github.com/MM026184/CourseProject/blob/main/mjm31%20Project%20Presentation.pptx)
+
