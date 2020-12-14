@@ -62,3 +62,6 @@ The project aims to reproduce the paper's results documented in Table 2 and Figu
 3. Navigate to the working directory and run the script with ```python ITMTFPresidential.py```
 
 ![example_run](https://github.com/MM026184/CourseProject/blob/main/images/example_run.png)
+
+## Presentation Files
+- [Powerpoint]
