@@ -1,0 +1,547 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20194.20.1018.2244                               -->
+<workbook original-version='18.1' source-build='2019.4.13 (20194.20.1018.2244)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <SheetIdentifierTracking ignorable='true' predowngraded='true' />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <style>
+    <style-rule element='all'>
+      <format attr='font-family' value='Arial' />
+    </style-rule>
+  </style>
+  <datasources>
+    <datasource caption='itmtf_stats' inline='true' name='federated.1dsgw350b8a4pd1adov5n1q1piyx' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='itmtf_stats' name='textscan.0zea0an08a3znx1apqnbi0l6d8h0'>
+            <connection class='textscan' directory='C:/Users/MM026184/OneDrive - Cerner Corporation/Documents/Learning/CS410-TextMining/Project/CourseProject' filename='itmtf_stats.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.0zea0an08a3znx1apqnbi0l6d8h0' name='itmtf_stats.csv' table='[itmtf_stats#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='integer' name='Iteration' ordinal='0' />
+            <column datatype='integer' name='tn' ordinal='1' />
+            <column datatype='real' name='Average_Causality_Confidence' ordinal='2' />
+            <column datatype='real' name='Average_Purity' ordinal='3' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[itmtf_stats.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Iteration</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Iteration]</local-name>
+            <parent-name>[itmtf_stats.csv]</parent-name>
+            <remote-alias>Iteration</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>tn</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[tn]</local-name>
+            <parent-name>[itmtf_stats.csv]</parent-name>
+            <remote-alias>tn</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Average_Causality_Confidence</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Average_Causality_Confidence]</local-name>
+            <parent-name>[itmtf_stats.csv]</parent-name>
+            <remote-alias>Average_Causality_Confidence</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Average_Purity</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Average_Purity]</local-name>
+            <parent-name>[itmtf_stats.csv]</parent-name>
+            <remote-alias>Average_Purity</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Average Causality Confidence' datatype='real' name='[Average_Causality_Confidence]' role='measure' type='quantitative' />
+      <column caption='Average Purity' datatype='real' name='[Average_Purity]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[Iteration]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column aggregation='Sum' caption='Tn' datatype='integer' name='[tn]' role='dimension' type='ordinal' />
+      <column-instance column='[Iteration]' derivation='None' name='[none:Iteration:ok]' pivot='key' type='ordinal' />
+      <column-instance column='[tn]' derivation='None' name='[none:tn:ok]' pivot='key' type='ordinal' />
+      <group hidden='true' name='[Exclusions (Iteration,Tn)]' name-style='unqualified' user:auto-column='exclude'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[none:Iteration:ok]' />
+          <groupfilter function='level-members' level='[none:tn:ok]' />
+        </groupfilter>
+      </group>
+      <layout dim-ordering='alphabetic' dim-percentage='0.454545' measure-ordering='alphabetic' measure-percentage='0.545455' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Average Causality Confidence'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Average causality confidence by IMTMF iteration and number of topics</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='itmtf_stats' name='federated.1dsgw350b8a4pd1adov5n1q1piyx' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1dsgw350b8a4pd1adov5n1q1piyx'>
+            <column caption='Average Causality Confidence' datatype='real' name='[Average_Causality_Confidence]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[Iteration]' role='measure' type='quantitative' />
+            <column-instance column='[Average_Causality_Confidence]' derivation='Avg' name='[avg:Average_Causality_Confidence:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Iteration]' derivation='None' name='[none:Iteration:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[tn]' derivation='None' name='[none:tn:ok]' pivot='key' type='ordinal' />
+            <column aggregation='Sum' caption='Tn' datatype='integer' name='[tn]' role='dimension' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1dsgw350b8a4pd1adov5n1q1piyx].[Exclusions (Iteration,Tn)]'>
+            <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='exclusive' user:ui-marker='enumerate'>
+              <groupfilter function='crossjoin'>
+                <groupfilter function='level-members' level='[none:Iteration:ok]' />
+                <groupfilter function='level-members' level='[none:tn:ok]' />
+              </groupfilter>
+              <groupfilter function='crossjoin'>
+                <groupfilter function='member' level='[none:Iteration:ok]' member='1' />
+                <groupfilter function='member' level='[none:tn:ok]' member='10' />
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.1dsgw350b8a4pd1adov5n1q1piyx].[Exclusions (Iteration,Tn)]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='1' field='[federated.1dsgw350b8a4pd1adov5n1q1piyx].[avg:Average_Causality_Confidence:qk]' field-type='quantitative' fold='true' scope='rows' synchronized='true' type='space' />
+            <encoding attr='space' class='0' domain-expand='false' field='[federated.1dsgw350b8a4pd1adov5n1q1piyx].[avg:Average_Causality_Confidence:qk]' field-type='quantitative' scope='rows' type='space' />
+            <format attr='display' class='1' field='[federated.1dsgw350b8a4pd1adov5n1q1piyx].[avg:Average_Causality_Confidence:qk]' scope='rows' value='false' />
+            <format attr='title' class='0' field='[federated.1dsgw350b8a4pd1adov5n1q1piyx].[avg:Average_Causality_Confidence:qk]' scope='rows' value='' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='font-size' value='14' />
+            <format attr='display-field-labels' scope='cols' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+            <encodings>
+              <color column='[federated.1dsgw350b8a4pd1adov5n1q1piyx].[none:tn:ok]' />
+            </encodings>
+          </pane>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1dsgw350b8a4pd1adov5n1q1piyx].[avg:Average_Causality_Confidence:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+            <encodings>
+              <color column='[federated.1dsgw350b8a4pd1adov5n1q1piyx].[none:tn:ok]' />
+            </encodings>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1dsgw350b8a4pd1adov5n1q1piyx].[avg:Average_Causality_Confidence:qk]' y-index='1'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <encodings>
+              <color column='[federated.1dsgw350b8a4pd1adov5n1q1piyx].[none:tn:ok]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>([federated.1dsgw350b8a4pd1adov5n1q1piyx].[avg:Average_Causality_Confidence:qk] + [federated.1dsgw350b8a4pd1adov5n1q1piyx].[avg:Average_Causality_Confidence:qk])</rows>
+        <cols>[federated.1dsgw350b8a4pd1adov5n1q1piyx].[none:Iteration:ok]</cols>
+      </table>
+      <simple-id uuid='{9ADEE0E7-F28E-4597-AD94-7AE9FE06C95B}' />
+    </worksheet>
+    <worksheet name='Average Purity'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Average purity by IMTMF iteration and number of topics</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='itmtf_stats' name='federated.1dsgw350b8a4pd1adov5n1q1piyx' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1dsgw350b8a4pd1adov5n1q1piyx'>
+            <column caption='Average Purity' datatype='real' name='[Average_Purity]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[Iteration]' role='measure' type='quantitative' />
+            <column-instance column='[Average_Purity]' derivation='Avg' name='[avg:Average_Purity:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Iteration]' derivation='None' name='[none:Iteration:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[tn]' derivation='None' name='[none:tn:ok]' pivot='key' type='ordinal' />
+            <column aggregation='Sum' caption='Tn' datatype='integer' name='[tn]' role='dimension' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1dsgw350b8a4pd1adov5n1q1piyx].[Exclusions (Iteration,Tn)]'>
+            <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='exclusive' user:ui-marker='enumerate'>
+              <groupfilter function='crossjoin'>
+                <groupfilter function='level-members' level='[none:Iteration:ok]' />
+                <groupfilter function='level-members' level='[none:tn:ok]' />
+              </groupfilter>
+              <groupfilter function='crossjoin'>
+                <groupfilter function='member' level='[none:Iteration:ok]' member='1' />
+                <groupfilter function='member' level='[none:tn:ok]' member='10' />
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.1dsgw350b8a4pd1adov5n1q1piyx].[Exclusions (Iteration,Tn)]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='1' field='[federated.1dsgw350b8a4pd1adov5n1q1piyx].[avg:Average_Purity:qk]' field-type='quantitative' fold='true' scope='rows' synchronized='true' type='space' />
+            <format attr='display' class='1' field='[federated.1dsgw350b8a4pd1adov5n1q1piyx].[avg:Average_Purity:qk]' scope='rows' value='false' />
+            <format attr='title' class='0' field='[federated.1dsgw350b8a4pd1adov5n1q1piyx].[avg:Average_Purity:qk]' scope='rows' value='' />
+            <encoding attr='space' class='0' field='[federated.1dsgw350b8a4pd1adov5n1q1piyx].[avg:Average_Purity:qk]' field-type='quantitative' scale='log' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='font-size' value='14' />
+            <format attr='display-field-labels' scope='cols' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+            <encodings>
+              <color column='[federated.1dsgw350b8a4pd1adov5n1q1piyx].[none:tn:ok]' />
+            </encodings>
+          </pane>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1dsgw350b8a4pd1adov5n1q1piyx].[avg:Average_Purity:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+            <encodings>
+              <color column='[federated.1dsgw350b8a4pd1adov5n1q1piyx].[none:tn:ok]' />
+            </encodings>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1dsgw350b8a4pd1adov5n1q1piyx].[avg:Average_Purity:qk]' y-index='1'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <encodings>
+              <color column='[federated.1dsgw350b8a4pd1adov5n1q1piyx].[none:tn:ok]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>([federated.1dsgw350b8a4pd1adov5n1q1piyx].[avg:Average_Purity:qk] + [federated.1dsgw350b8a4pd1adov5n1q1piyx].[avg:Average_Purity:qk])</rows>
+        <cols>[federated.1dsgw350b8a4pd1adov5n1q1piyx].[none:Iteration:ok]</cols>
+      </table>
+      <simple-id uuid='{13111ABC-652F-43F7-AFFF-EE0AE3AD0E95}' />
+    </worksheet>
+  </worksheets>
+  <windows saved-dpi-scale-factor='1.5' source-height='30'>
+    <window class='worksheet' maximized='true' name='Average Causality Confidence'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='30'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='1' param='[federated.1dsgw350b8a4pd1adov5n1q1piyx].[none:tn:ok]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+        <highlight>
+          <color-one-way>
+            <field>[federated.1dsgw350b8a4pd1adov5n1q1piyx].[none:Iteration:ok]</field>
+            <field>[federated.1dsgw350b8a4pd1adov5n1q1piyx].[none:tn:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{3078B860-00B3-4EE5-A55A-2CA44E6976F1}' />
+    </window>
+    <window class='worksheet' name='Average Purity'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='30'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='1' param='[federated.1dsgw350b8a4pd1adov5n1q1piyx].[none:tn:ok]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+        <highlight>
+          <color-one-way>
+            <field>[federated.1dsgw350b8a4pd1adov5n1q1piyx].[none:Iteration:ok]</field>
+            <field>[federated.1dsgw350b8a4pd1adov5n1q1piyx].[none:tn:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{51A179C9-E40E-4F7C-A66C-181CB1B156EF}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Average Causality Confidence' width='192'>
+      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
+    </thumbnail>
+    <thumbnail height='192' name='Average Purity' width='192'>
+      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
+    </thumbnail>
+  </thumbnails>
+</workbook>
