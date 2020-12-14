@@ -64,5 +64,7 @@ The project aims to reproduce the paper's results documented in Table 2 and Figu
 ![example_run](https://github.com/MM026184/CourseProject/blob/main/images/example_run.png)
 
 ## Presentation Files
-- [Powerpoint](https://github.com/MM026184/CourseProject/blob/main/mjm31%20Project%20Presentation.pptx)
+- [Presentation slides](https://github.com/MM026184/CourseProject/blob/main/mjm31%20Project%20Presentation.pptx)
+- [Voiced Presentation] - To listen, open the .pptx document in Powerpoint, then navigate to the Slide Show tab and hit the From Beginning button.  The presentation should start from there.
+- [Voiced Presentation MP4] - If unable to listen directly in Powerpoint, you can view it as a video by opening this MP4 file.
 
