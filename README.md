@@ -68,3 +68,16 @@ The project aims to reproduce the paper's results documented in Table 2 and Figu
 - [Voiced Presentation](https://github.com/MM026184/CourseProject/blob/main/mjm31%20Project%20Presentation%20VOICED.pptx) - To listen, open the .pptx document in Powerpoint, then navigate to the Slide Show tab and hit the From Beginning button.  The presentation should start from there.
 - [Voiced Presentation Video](https://mediaspace.illinois.edu/media/1_agn7k1f8) - If unable to listen directly in Powerpoint, you can view it as a video in the Illinois Media Space.
 
+## Results
+![Table2](https://github.com/MM026184/CourseProject/blob/main/images/Table2.png)
+
+![Figure2b](https://github.com/MM026184/CourseProject/blob/main/images/Figure2b.png)
+
+In general this implementation’s results were poorer than what was noted in the paper.  Improvements in causality confidence and purity were not observed with more iterations.  Top words for causal topics seemed applicable, but not all that compelling or different from one another.
+
+Poorer results are likely due to the following differences with this implementation:
+- Lack of a background model – Although the paper doesn’t explicitly cite the use of a background model prior, results would imply they had one.  My topics seem to have a lot more “background words” (ex: would).
+- Lack of a background could also be the a main reason for substantially lower purities with each iteration (0-5% vs 40-100%).
+- Lack of µ parameter – This is likely the reason that neither purity nor causality confidence were improved with each iteration, regardless of the number of topics to begin with. Using this parameter would have ensured that prior words (and topics) appeared with the next iterations results.
+
+
